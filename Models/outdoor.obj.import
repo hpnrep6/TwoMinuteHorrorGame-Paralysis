@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/outdoor.obj-117d0afc2f9cf2e40ea961fe5f0e51b4.mesh"
+
+[deps]
+
+files=[ "res://.import/outdoor.obj-117d0afc2f9cf2e40ea961fe5f0e51b4.mesh" ]
+
+source_file="res://Models/outdoor.obj"
+dest_files=[ "res://.import/outdoor.obj-117d0afc2f9cf2e40ea961fe5f0e51b4.mesh", "res://.import/outdoor.obj-117d0afc2f9cf2e40ea961fe5f0e51b4.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

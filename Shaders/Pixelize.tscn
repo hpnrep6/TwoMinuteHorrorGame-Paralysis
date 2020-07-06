@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Shaders/Pixelize.tres" type="Material" id=1]
+
+[node name="ViewportContainer" type="ViewportContainer"]
+material = ExtResource( 1 )
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

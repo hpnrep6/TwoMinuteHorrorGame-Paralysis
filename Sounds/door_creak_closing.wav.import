@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/door_creak_closing.wav-b4744bad60ea8fea47c5a4c5329466e3.sample"
+
+[deps]
+
+source_file="res://Sounds/door_creak_closing.wav"
+dest_files=[ "res://.import/door_creak_closing.wav-b4744bad60ea8fea47c5a4c5329466e3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

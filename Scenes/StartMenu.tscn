@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Images/screenshot.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/FullBleedBB_reg.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/StartMenu.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 90
+outline_size = 1
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 190
+font_data = ExtResource( 2 )
+
+[node name="Title" type="Control"]
+anchor_left = -0.0017519
+anchor_top = -0.00622886
+anchor_right = 0.998248
+anchor_bottom = 0.993771
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Container" parent="."]
+anchor_bottom = 0.349
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer2" type="GridContainer" parent="Container"]
+anchor_left = 0.02
+anchor_top = 0.667
+anchor_right = 0.121
+anchor_bottom = 0.677
+margin_left = 37.2
+margin_top = -261.086
+margin_right = 815.16
+margin_bottom = 809.114
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Container/GridContainer2"]
+margin_right = 782.0
+margin_bottom = 221.0
+custom_fonts/font = SubResource( 1 )
+text = "
+Paralysis"
+
+[node name="Label" type="Label" parent="Container/GridContainer2"]
+margin_top = 225.0
+margin_right = 782.0
+margin_bottom = 982.0
+custom_fonts/font = SubResource( 2 )
+text = "
+
+
+
+Controls:
+Movement - [W][A][S][D]
+Jump - [Space]
+Toggle Flashlight - Left mouse
+Restart game - [p]
+Return to menu - [esc]"
+
+[node name="Button" type="Button" parent="Container"]
+anchor_left = 0.02
+anchor_right = 0.02
+margin_left = 25.2295
+margin_top = 231.936
+margin_right = 492.23
+margin_bottom = 559.056
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.337255, 0.337255, 0.337255, 1 )
+custom_colors/font_color_pressed = Color( 0.262745, 0.262745, 0.262745, 1 )
+text = "Start"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Container/Button" to="." method="_on_Button_pressed"]

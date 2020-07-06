@@ -1,0 +1,793 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Models/gjamhouse2.dae" type="PackedScene" id=1]
+[ext_resource path="res://Materials/Grey.material" type="Material" id=2]
+[ext_resource path="res://Materials/Wood.material" type="Material" id=3]
+[ext_resource path="res://Scenes/couch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/bedtable.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/television.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/table.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/chair.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/box1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/box2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/talllight.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/bed.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/shortlight.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/DoorTwo.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/TriggerA.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/TriggerB.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/DoorOne.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/ceilinglight.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/ceilinglighttwo.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/toiletpaper.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scripts/WorldController.gd" type="Script" id=21]
+[ext_resource path="res://Scenes/FlashlightModel.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/divinepaper.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/divineowo.tscn" type="PackedScene" id=24]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.37, 2.47058, 0.586 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.184314, 0.172549, 0.160784, 1 )
+
+[node name="gjamhouse2" instance=ExtResource( 1 )]
+script = ExtResource( 21 )
+
+[node name="Roof" parent="." index="0"]
+material_override = ExtResource( 2 )
+use_in_baked_light = true
+
+[node name="Structure" type="Spatial" parent="." index="1"]
+
+[node name="StairColliders" type="StaticBody" parent="." index="2"]
+
+[node name="CollisionShape2" type="CollisionShape" parent="StairColliders" index="0"]
+transform = Transform( 0.624727, 0.780843, 0, -0.780843, 0.624727, 0, 0, 0, 1, -0.508315, -1.65857, 1.71608 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StairColliders" index="1"]
+transform = Transform( -0.612936, -0.829639, 9.11454e-08, -0.790132, 0.643583, 1.17644e-07, -1.48672e-07, 9.57954e-11, -1.001, -3.42508, -4.70884, 3.28696 )
+shape = SubResource( 1 )
+
+[node name="Stairs2" parent="." index="3"]
+transform = Transform( -0.182865, 0, 0, 0, 0.601775, -5.26089e-08, 0, 5.26089e-08, 0.601775, -5.40716, -2.86012, 3.28696 )
+use_in_baked_light = true
+material/0 = SubResource( 2 )
+
+[node name="shape0" parent="Stairs2/Stairs2" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, -7.10543e-15, 0, 7.10543e-15, 1, 0, 0, 0 )
+visible = false
+disabled = true
+
+[node name="SecondFloorWalls" parent="." index="4"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 10, 0, -0.0176622, 0.0190756 )
+use_in_baked_light = true
+material/0 = ExtResource( 2 )
+
+[node name="FirstFloorWall" parent="." index="5"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 10, -0.0148597, -3.15501, -0.031786 )
+use_in_baked_light = true
+material/0 = ExtResource( 2 )
+
+[node name="Stairs" parent="." index="6"]
+use_in_baked_light = true
+material/0 = ExtResource( 3 )
+
+[node name="shape0" parent="Stairs/Stairs" index="0"]
+disabled = true
+
+[node name="Basement" parent="." index="7"]
+use_in_baked_light = true
+material/0 = ExtResource( 2 )
+
+[node name="Wall" parent="." index="8"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 10, 0, -6, 0.0520167 )
+material_override = ExtResource( 2 )
+use_in_baked_light = true
+material/0 = ExtResource( 2 )
+
+[node name="FirstFloor" parent="." index="9"]
+use_in_baked_light = true
+material/0 = ExtResource( 3 )
+
+[node name="SecondFloor" parent="." index="10"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -0.0403302 )
+use_in_baked_light = true
+material/0 = ExtResource( 3 )
+
+[node name="couch" parent="." index="12" instance=ExtResource( 4 )]
+transform = Transform( -0.295359, 0, -0.0525637, 0, 0.3, 0, 0.0525637, 0, -0.295359, -0.174012, -2.06749, -0.211827 )
+
+[node name="couch3" parent="." index="13" instance=ExtResource( 4 )]
+transform = Transform( -0.295359, 0, -0.0525637, 0, 0.3, 0, 0.0525637, 0, -0.295359, -2.16723, -2.06749, 0.155823 )
+
+[node name="couch2" parent="." index="14" instance=ExtResource( 4 )]
+transform = Transform( -0.0871655, 0, -0.287058, 0, 0.3, 0, 0.287058, 0, -0.0871655, 1.85352, -2.06749, -2.15283 )
+
+[node name="bedtable" parent="." index="15" instance=ExtResource( 5 )]
+transform = Transform( 1.09896, 3.04928e-05, 0.00165427, 0, 0.199966, -0.00368593, -0.00909178, 0.0036858, 0.199959, -0.186601, -2.56732, -3.71499 )
+
+[node name="television" parent="." index="16" instance=ExtResource( 6 )]
+transform = Transform( 0.0566363, 0, -0.496782, 0, 0.5, 0, 0.496782, 0, 0.0566363, -0.158528, -1.65472, -3.75041 )
+
+[node name="table" parent="." index="17" instance=ExtResource( 7 )]
+transform = Transform( 0.281836, 0, -0.00794869, 0, 0.231, 0, 0.00962031, 0, 0.232864, -2.8415, -2.24594, -3.52101 )
+
+[node name="table4" parent="." index="18" instance=ExtResource( 7 )]
+transform = Transform( 0.178981, 0, -0.00341583, 0, 0.231, 0, 0.00262418, 0, 0.232975, 2.03348, 0.661679, -3.64117 )
+
+[node name="table2" parent="." index="19" instance=ExtResource( 7 )]
+transform = Transform( 0.481889, 0, -0.00674029, 0, 0.231, 0, 0.0103466, 0, 0.313928, -1.41165, -2.24594, 5.45364 )
+
+[node name="chair" parent="." index="20" instance=ExtResource( 8 )]
+transform = Transform( -0.138082, 0, 0.0585953, 0, 0.15, 0, -0.0585953, 0, -0.138082, -4.55726, -2.46228, -3.72904 )
+
+[node name="chair2" parent="." index="21" instance=ExtResource( 8 )]
+transform = Transform( 0.0174434, 0, -0.148982, 0, 0.15, 0, 0.148982, 0, 0.0174434, -2.60001, -2.46228, -3.05855 )
+
+[node name="chair3" parent="." index="22" instance=ExtResource( 8 )]
+transform = Transform( -0.0364382, 0, -0.145507, 0, 0.15, 0, 0.145507, 0, -0.0364382, -2.63969, -2.46228, 5.96152 )
+
+[node name="chair4" parent="." index="23" instance=ExtResource( 8 )]
+transform = Transform( -0.124771, 0, -0.0832593, 0, 0.15, 0, 0.0832593, 0, -0.124771, -2.09367, -2.46228, 6.41512 )
+
+[node name="chair5" parent="." index="24" instance=ExtResource( 8 )]
+transform = Transform( 0.0192908, 0, -0.148754, 0, 0.15, 0, 0.148754, 0, 0.0192908, -0.83728, -2.46228, 6.07035 )
+
+[node name="chair7" parent="." index="25" instance=ExtResource( 8 )]
+transform = Transform( 0.14986, 0, 0.00648537, 0, 0.15, 0, -0.00648537, 0, 0.14986, 0.222051, -2.46228, 5.53073 )
+
+[node name="chair8" parent="." index="26" instance=ExtResource( 8 )]
+transform = Transform( 0.0161739, 0, 0.149126, 0, 0.15, 0, -0.149126, 0, 0.0161739, -0.327578, -2.46228, 5.04 )
+
+[node name="chair9" parent="." index="27" instance=ExtResource( 8 )]
+transform = Transform( -0.0113721, 0, 0.149568, 0, 0.15, 0, -0.149568, 0, -0.0113721, -1.20361, -2.46228, 4.988 )
+
+[node name="chair10" parent="." index="28" instance=ExtResource( 8 )]
+transform = Transform( 0.0282975, 0, 0.147307, 0, 0.15, 0, -0.147307, 0, 0.0282975, -2.13042, -2.46228, 4.32652 )
+
+[node name="chair6" parent="." index="29" instance=ExtResource( 8 )]
+transform = Transform( -0.117827, 0, -0.0928271, 0, 0.15, 0, 0.0928271, 0, -0.117827, -3.633, -2.46228, 5.69144 )
+
+[node name="box" parent="." index="30" instance=ExtResource( 9 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.326, -4.78084, -2.63696, 0.393345 )
+
+[node name="box18" parent="." index="31" instance=ExtResource( 9 )]
+transform = Transform( 0.118582, 0, -0.288607, 0, 0.259, 0, 0.225751, 0, 0.151599, 2.25442, -2.64211, 1.91901 )
+
+[node name="box19" parent="." index="32" instance=ExtResource( 9 )]
+transform = Transform( -0.148745, 0, -0.264792, 0, 0.259, 0, 0.207123, 0, -0.190161, 2.34939, -2.12683, 1.91901 )
+
+[node name="box8" parent="." index="33" instance=ExtResource( 9 )]
+transform = Transform( 0.242678, 0, 0.0627661, 0, 0.25, 0, -0.0460037, 0, 0.331103, 1.37127, -2.63696, 4.94595 )
+
+[node name="box9" parent="." index="34" instance=ExtResource( 9 )]
+transform = Transform( 0.24695, 0, -0.00679886, 0, 0.25, 0, 0.00498314, 0, 0.336931, 1.48921, -2.63696, 5.77104 )
+
+[node name="box14" parent="." index="35" instance=ExtResource( 9 )]
+transform = Transform( 0.222091, 0, -0.147483, 0, 0.25, 0, 0.108096, 0, 0.303015, 2.00282, -2.63696, 6.24856 )
+
+[node name="box21" parent="." index="36" instance=ExtResource( 9 )]
+transform = Transform( 0.558539, 0, -0.148721, 0, 0.419, 0, 0.148721, 0, 0.558539, 0.766971, -5.42089, 0.0504794 )
+
+[node name="box33" parent="." index="37" instance=ExtResource( 9 )]
+transform = Transform( 0.102859, 0, 0.69125, 0, 0.402, 0, -0.580965, 0, 0.122385, 1.91296, -5.42089, 4.61999 )
+
+[node name="box34" parent="." index="38" instance=ExtResource( 9 )]
+transform = Transform( 0.219154, 0, 0.439374, 0, 0.402, 0, -0.242695, 0, 0.396755, 1.74349, -5.42089, 6.38812 )
+
+[node name="box40" parent="." index="39" instance=ExtResource( 9 )]
+transform = Transform( 0.317365, 0, 0.142656, 0, 0.402, 0, -0.0787979, 0, 0.574555, 0.611543, -5.42089, 4.68296 )
+
+[node name="box41" parent="." index="40" instance=ExtResource( 9 )]
+transform = Transform( 0.321754, 0, -0.105618, 0, 0.402, 0, 0.0583398, 0, 0.582502, 0.759025, -4.63427, 4.74435 )
+
+[node name="box35" parent="." index="41" instance=ExtResource( 9 )]
+transform = Transform( -0.280138, 0, 0.305372, 0, 0.402, 0, -0.168677, 0, -0.50716, 2.16476, -4.57825, 4.70924 )
+
+[node name="box26" parent="." index="42" instance=ExtResource( 9 )]
+transform = Transform( 0.553511, 0, 0.166461, 0, 0.419, 0, -0.166461, 0, 0.553511, 0.84002, -4.60785, -0.459781 )
+
+[node name="box27" parent="." index="43" instance=ExtResource( 9 )]
+transform = Transform( 0.570707, 0, -0.0915258, 0, 0.419, 0, 0.0915258, 0, 0.570707, -0.42706, -4.60785, 1.71445 )
+
+[node name="box28" parent="." index="44" instance=ExtResource( 9 )]
+transform = Transform( 0.213771, 0, 0.537016, 0, 0.419, 0, -0.537016, 0, 0.213771, -0.731986, -4.60785, 0.255187 )
+
+[node name="box31" parent="." index="45" instance=ExtResource( 9 )]
+transform = Transform( -0.0962921, 0, 0.569923, 0, 0.419, 0, -0.569923, 0, -0.0962921, -1.84484, -4.60785, -2.63089 )
+
+[node name="box32" parent="." index="46" instance=ExtResource( 9 )]
+transform = Transform( 0.565167, 0, -0.121121, 0, 0.419, 0, 0.121121, 0, 0.565167, -3.24145, -4.60785, -2.57002 )
+
+[node name="box22" parent="." index="47" instance=ExtResource( 9 )]
+transform = Transform( 0.443603, 0, 0.37054, 0, 0.419, 0, -0.37054, 0, 0.443603, -0.208841, -5.42089, 1.24703 )
+
+[node name="box23" parent="." index="48" instance=ExtResource( 9 )]
+transform = Transform( 0.443603, 0, 0.37054, 0, 0.419, 0, -0.37054, 0, 0.443603, 1.31648, -5.42089, -1.33075 )
+
+[node name="box24" parent="." index="49" instance=ExtResource( 9 )]
+transform = Transform( -0.108801, 0, 0.567667, 0, 0.419, 0, -0.567667, 0, -0.108801, -0.739551, -5.42089, -0.429531 )
+
+[node name="box25" parent="." index="50" instance=ExtResource( 9 )]
+transform = Transform( 0.253026, 0, 0.519675, 0, 0.419, 0, -0.519675, 0, 0.253026, -1.05949, -5.42089, -3.30299 )
+
+[node name="box29" parent="." index="51" instance=ExtResource( 9 )]
+transform = Transform( -0.139262, 0, 0.560972, 0, 0.419, 0, -0.560972, 0, -0.139262, -3.01783, -5.42089, -3.23614 )
+
+[node name="box30" parent="." index="52" instance=ExtResource( 9 )]
+transform = Transform( -0.423581, 0, 0.393272, 0, 0.419, 0, -0.393272, 0, -0.423581, -2.50646, -5.42089, -1.9944 )
+
+[node name="box36" parent="." index="53" instance=ExtResource( 9 )]
+transform = Transform( -0.576304, 0, 0.0442438, 0, 0.419, 0, -0.0442438, 0, -0.576304, -5.67191, -5.42089, -1.53918 )
+
+[node name="box37" parent="." index="54" instance=ExtResource( 9 )]
+transform = Transform( -0.246994, 0, 0.522569, 0, 0.419, 0, -0.522569, 0, -0.246994, -5.30011, -5.42089, -3.06082 )
+
+[node name="box38" parent="." index="55" instance=ExtResource( 9 )]
+transform = Transform( -0.572651, 0, -0.0784529, 0, 0.419, 0, 0.0784529, 0, -0.572651, -4.79645, -5.42089, 0.589424 )
+
+[node name="box39" parent="." index="56" instance=ExtResource( 9 )]
+transform = Transform( -0.271345, 0, 0.510349, 0, 0.419, 0, -0.510349, 0, -0.271345, -5.76053, -5.42089, 5.89561 )
+
+[node name="box15" parent="." index="57" instance=ExtResource( 9 )]
+transform = Transform( 0.234372, 0, 0.106374, 0, 0.25, 0, -0.0779653, 0, 0.319771, 1.81615, -2.14168, 6.23752 )
+
+[node name="box16" parent="." index="58" instance=ExtResource( 9 )]
+transform = Transform( 0.0720261, 0, 0.322354, 0, 0.25, 0, -0.236265, 0, 0.0982705, 1.82682, -1.65702, 6.07542 )
+
+[node name="box17" parent="." index="59" instance=ExtResource( 9 )]
+transform = Transform( 0.220529, 0, 0.151783, 0, 0.25, 0, -0.111247, 0, 0.300884, 0.85318, -2.6102, 6.0531 )
+
+[node name="box10" parent="." index="60" instance=ExtResource( 9 )]
+transform = Transform( 0.0842561, 0, 0.316787, 0, 0.25, 0, -0.232185, 0, 0.114957, 1.87745, -2.63696, 4.38356 )
+
+[node name="box42" parent="." index="61" instance=ExtResource( 9 )]
+transform = Transform( 0.193971, 0, 0.208639, 0, 0.25, 0, -0.15292, 0, 0.264648, 2.46431, -2.63696, 4.98362 )
+
+[node name="box11" parent="." index="62" instance=ExtResource( 9 )]
+transform = Transform( 0.240308, 0, -0.0779159, 0, 0.25, 0, 0.0571075, 0, 0.327869, 1.73815, -2.1526, 4.65228 )
+
+[node name="box12" parent="." index="63" instance=ExtResource( 9 )]
+transform = Transform( 0.208211, 0, 0.181298, 0, 0.25, 0, -0.13288, 0, 0.284077, 1.57885, -2.13789, 5.44574 )
+
+[node name="box13" parent="." index="64" instance=ExtResource( 9 )]
+transform = Transform( -0.224192, 0, 0.141441, 0, 0.25, 0, -0.103667, 0, -0.305882, 1.69751, -1.64256, 4.97214 )
+
+[node name="box2" parent="." index="65" instance=ExtResource( 9 )]
+transform = Transform( 0.166781, 0, 0.179922, 0, 0.2, 0, -0.110382, 0, 0.271853, -4.84669, -2.25378, 0.303975 )
+
+[node name="box5" parent="." index="66" instance=ExtResource( 9 )]
+transform = Transform( 0.106608, 0, -0.275826, 0, 0.2, 0, 0.169218, 0, 0.173771, -4.84669, -1.87147, 0.50368 )
+
+[node name="box6" parent="." index="67" instance=ExtResource( 9 )]
+transform = Transform( -0.138295, 0, -0.235502, 0, 0.2, 0, 0.14448, 0, -0.225421, -4.84669, -1.47633, 0.335645 )
+
+[node name="box7" parent="." index="68" instance=ExtResource( 9 )]
+transform = Transform( -0.0850421, 0, -0.295061, 0, 0.2, 0, 0.181019, 0, -0.138619, -4.84669, -1.33963, -0.286371 )
+
+[node name="box3" parent="." index="69" instance=ExtResource( 10 )]
+transform = Transform( 0.21325, 0, -0.0434235, 0, 0.444, 0, 0.0273784, 0, 0.338224, -4.94217, -2.41154, -0.515417 )
+
+[node name="box20" parent="." index="70" instance=ExtResource( 10 )]
+transform = Transform( 0.166295, 0, -0.126742, 0, 0.418, 0, 0.124939, 0, 0.168694, 0.479974, -2.44313, 1.72594 )
+
+[node name="box4" parent="." index="71" instance=ExtResource( 10 )]
+transform = Transform( -3.28589e-08, -0.416506, 0.118132, 0.215, -7.23368e-08, 0, 1.21347e-08, 0.153814, 0.319884, -4.88117, -1.75707, -0.515417 )
+
+[node name="talllight" parent="." index="72" instance=ExtResource( 11 )]
+transform = Transform( 0.252, 0, 0, 0, 0.219, 0, 0, 0, 0.256, -3.8933, -1.47766, -0.520813 )
+
+[node name="talllight3" parent="." index="73" instance=ExtResource( 11 )]
+transform = Transform( 0.252, 0, 0, 0, 0.219, 0, 0, 0, 0.256, 2.38882, -1.47766, -3.63186 )
+
+[node name="talllight4" parent="." index="74" instance=ExtResource( 11 )]
+transform = Transform( 0.252, 0, 0, 0, 0.219, 0, 0, 0, 0.256, 0.89605, -4.49239, 1.63335 )
+
+[node name="talllight2" parent="." index="75" instance=ExtResource( 11 )]
+transform = Transform( 0.252, 0, 0, 0, 0.219, 0, 0, 0, 0.256, -3.38818, -1.47766, 4.25521 )
+
+[node name="bed" parent="." index="76" instance=ExtResource( 12 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -3.61813, 0.322673, -0.665453 )
+
+[node name="Door3" parent="." index="77" instance=ExtResource( 17 )]
+transform = Transform( -2.44381e-08, 0, -0.151, 0, 0.135, 0, 0.15, 0, -2.4601e-08, -6.36929, -2.07697, -4.05331 )
+
+[node name="TriggerA" parent="Door3" index="2" instance=ExtResource( 15 )]
+transform = Transform( 3.163, 0, 1.13687e-13, 0, 1.389, 0, 1.13687e-13, 0, 5.865, 37.6366, -3.51168, -55.2192 )
+
+[node name="TriggerB" parent="Door3" index="3" instance=ExtResource( 16 )]
+transform = Transform( 0.78109, 0, 5.3065, 0, 1, 0, -0.620007, 0, 6.6777, 7.59792, -2.67124, -3.8075 )
+
+[node name="Door" parent="." index="78" instance=ExtResource( 14 )]
+transform = Transform( 0.1, 0, 0, 0, 0.15, 0, 0, 0, 0.182, 1.15666, 1.12052, 0.0973042 )
+
+[node name="TriggerA" parent="Door" index="2" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5.663, -18.1015, -3.35666, -1.70532 )
+
+[node name="TriggerB" parent="Door" index="3" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 0.884, 0, 0, 0, 2.846, 0.655463, -3.91173, 9.47459 )
+
+[node name="Door2" parent="." index="79" instance=ExtResource( 14 )]
+transform = Transform( 0.1, 0, 0, 0, 0.15, 0, 0, 0, 0.182, 1.15666, 1.12052, -1.91023 )
+
+[node name="Door5" parent="." index="80" instance=ExtResource( 14 )]
+transform = Transform( 0.1, 0, 0, 0, 0.15, 0, 0, 0, 0.182, 2.8811, 1.12052, -1.91023 )
+
+[node name="Door4" parent="." index="81" instance=ExtResource( 14 )]
+transform = Transform( -1.62921e-08, 0, -0.182, 0, 0.15, 0, 0.1, 0, -2.96516e-08, -4.76949, -1.85641, 7.06586 )
+
+[node name="shortlight2" parent="." index="82" instance=ExtResource( 13 )]
+transform = Transform( 0.179197, 0, 0.0169833, 0, 0.18, 0, -0.0169833, 0, 0.179197, -1.44621, -2.20632, 5.15738 )
+
+[node name="shortlight3" parent="." index="83" instance=ExtResource( 13 )]
+transform = Transform( 0.179228, 0, -0.0166517, 0, 0.18, 0, 0.0166517, 0, 0.179228, 2.41081, 0.6935, -3.79395 )
+
+[node name="bedtable2" parent="." index="84" instance=ExtResource( 5 )]
+transform = Transform( 0.299652, 0, -0.0144562, 0, 0.3, 0, 0.0144562, 0, 0.299652, -4.85227, 0.43567, 0.547229 )
+
+[node name="shortlight" parent="bedtable2" index="2" instance=ExtResource( 13 )]
+transform = Transform( 0.593901, 0, 0.0853285, 0, 0.599999, 0, -0.0853285, 0, 0.593901, -0.172951, 1.35948, -0.00334716 )
+
+[node name="ceilinglight" parent="." index="85" instance=ExtResource( 18 )]
+transform = Transform( -0.03, 1.16824e-08, 0, -1.16824e-08, -0.03, 0, 0, 0, 0.03, -0.366688, -0.155632, -1.38065 )
+
+[node name="ceilinglight2" parent="." index="86" instance=ExtResource( 18 )]
+transform = Transform( -0.03, 1.16824e-08, 0, -1.16824e-08, -0.03, 0, 0, 0, 0.03, 2.42036, -0.155632, -1.38065 )
+
+[node name="ceilinglight3" parent="." index="87" instance=ExtResource( 18 )]
+transform = Transform( -0.03, 1.16824e-08, 0, -1.16824e-08, -0.03, 0, 0, 0, 0.03, -3.58963, -0.155632, -1.38065 )
+
+[node name="ceilinglight4" parent="." index="88" instance=ExtResource( 19 )]
+transform = Transform( -0.03, 1.16824e-08, 0, -1.16824e-08, -0.03, 0, 0, 0, 0.03, 1.89283, 3.24624, 0 )
+
+[node name="ceilinglight5" parent="." index="89" instance=ExtResource( 19 )]
+transform = Transform( -0.03, 1.16824e-08, 0, -1.16824e-08, -0.03, 0, 0, 0, 0.03, 1.89283, 3.24624, -2.93899 )
+
+[node name="table3" parent="." index="90" instance=ExtResource( 7 )]
+transform = Transform( 0.194, 0, 0, 0, 0.294, 0, 0, 0, 0.2, -0.952986, 0.812027, 0.725099 )
+
+[node name="chair" parent="table3" index="2" instance=ExtResource( 8 )]
+transform = Transform( 0.0732084, 0, 1.02806, 0, 0.633, 0, -0.967233, 0, 0.0778123, 0.781686, -0.574956, -1.8764 )
+
+[node name="television" parent="table3" index="3" instance=ExtResource( 6 )]
+transform = Transform( 0.0722279, 0, 1.02824, 0, 0.633, 0, -0.967459, 0, 0.0732006, -0.499861, 0.95808, 1.09314 )
+
+[node name="toiletpaper" parent="." index="91" instance=ExtResource( 20 )]
+transform = Transform( 1.41693, 0, 1.4115, 0, 2, 0, -1.4115, 0, 1.41693, -2.45961, -5.79433, 5.71766 )
+
+[node name="toiletpaper4" parent="toiletpaper" index="3" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.341933, 0, -0.00244725 )
+
+[node name="toiletpaper10" parent="toiletpaper" index="4" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000945568, 0, 0.000184894 )
+
+[node name="toiletpaper5" parent="toiletpaper" index="5" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0062573, 0, 0.115767 )
+
+[node name="toiletpaper6" parent="toiletpaper" index="6" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34981, 0, 0.109626 )
+
+[node name="toiletpaper8" parent="toiletpaper" index="7" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343649, 0, 0.224851 )
+
+[node name="toiletpaper9" parent="toiletpaper" index="8" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00375462, 0, 0.231398 )
+
+[node name="toiletpaper7" parent="toiletpaper" index="9" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34981, 0, 0.109626 )
+
+[node name="toiletpaper11" parent="toiletpaper" index="10" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.331019, 0.111658, -0.0127751 )
+
+[node name="toiletpaper12" parent="toiletpaper" index="11" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, 0.00916195, 0.111658, 0.0108057 )
+
+[node name="toiletpaper13" parent="toiletpaper" index="12" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, 0.00924873, 0.111658, 0.126611 )
+
+[node name="toiletpaper14" parent="toiletpaper" index="13" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.345769, 0.111658, 0.0986024 )
+
+[node name="toiletpaper15" parent="toiletpaper" index="14" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.346699, 0.111658, 0.213989 )
+
+[node name="toiletpaper16" parent="toiletpaper" index="15" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.00784945, 0.111658, 0.241409 )
+
+[node name="toiletpaper17" parent="toiletpaper" index="16" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.345769, 0.111658, 0.0986024 )
+
+[node name="toiletpaper18" parent="toiletpaper" index="17" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.342244, 0.220863, 0.0032841 )
+
+[node name="toiletpaper19" parent="toiletpaper" index="18" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.00136256, 0.220863, -0.00559318 )
+
+[node name="toiletpaper20" parent="toiletpaper" index="19" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00973678, 0.220863, 0.10968 )
+
+[node name="toiletpaper21" parent="toiletpaper" index="20" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper22" parent="toiletpaper" index="21" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.336289, 0.220863, 0.230512 )
+
+[node name="toiletpaper23" parent="toiletpaper" index="22" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00363278, 0.220863, 0.225583 )
+
+[node name="toiletpaper24" parent="toiletpaper" index="23" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper25" parent="toiletpaper" index="24" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.342244, 0.220863, 0.0032841 )
+
+[node name="toiletpaper26" parent="toiletpaper" index="25" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.00136256, 0.220863, -0.00559342 )
+
+[node name="toiletpaper27" parent="toiletpaper" index="26" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00973678, 0.220863, 0.10968 )
+
+[node name="toiletpaper28" parent="toiletpaper" index="27" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper29" parent="toiletpaper" index="28" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.336289, 0.220863, 0.230512 )
+
+[node name="toiletpaper32" parent="toiletpaper" index="29" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.336289, 0.220863, 0.230512 )
+
+[node name="toiletpaper30" parent="toiletpaper" index="30" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00363255, 0.220863, 0.225583 )
+
+[node name="toiletpaper31" parent="toiletpaper" index="31" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper33" parent="toiletpaper" index="32" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.339751, 0.329708, -0.000570059 )
+
+[node name="toiletpaper34" parent="toiletpaper" index="33" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, 0.00124335, 0.329708, -0.00184882 )
+
+[node name="toiletpaper35" parent="toiletpaper" index="34" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, 0.00977111, 0.329708, 0.113643 )
+
+[node name="toiletpaper36" parent="toiletpaper" index="35" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.346343, 0.329708, 0.111586 )
+
+[node name="toiletpaper37" parent="toiletpaper" index="36" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.338861, 0.329708, 0.226733 )
+
+[node name="toiletpaper38" parent="toiletpaper" index="37" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.338861, 0.329708, 0.226733 )
+
+[node name="toiletpaper39" parent="toiletpaper" index="38" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, 0.0010848, 0.329708, 0.229381 )
+
+[node name="toiletpaper40" parent="toiletpaper" index="39" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.346343, 0.329708, 0.111586 )
+
+[node name="toiletpaper41" parent="toiletpaper" index="40" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.348508, 0.437934, 0.013906 )
+
+[node name="toiletpaper42" parent="toiletpaper" index="41" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.00877023, 0.437934, -0.0153629 )
+
+[node name="toiletpaper43" parent="toiletpaper" index="42" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, 0.00921082, 0.437934, 0.0990399 )
+
+[node name="toiletpaper44" parent="toiletpaper" index="43" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.345871, 0.437934, 0.126225 )
+
+[node name="toiletpaper45" parent="toiletpaper" index="44" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.328961, 0.437934, 0.240369 )
+
+[node name="toiletpaper46" parent="toiletpaper" index="45" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.328961, 0.437934, 0.240369 )
+
+[node name="toiletpaper47" parent="toiletpaper" index="46" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, 0.0100546, 0.437934, 0.2151 )
+
+[node name="toiletpaper48" parent="toiletpaper" index="47" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.345871, 0.437934, 0.126225 )
+
+[node name="toiletpaper2" parent="." index="92" instance=ExtResource( 20 )]
+transform = Transform( 0.924828, 0, 1.77333, 0, 2, 0, -1.77333, 0, 0.924828, -1.47347, -5.79433, 5.71766 )
+
+[node name="toiletpaper4" parent="toiletpaper2" index="3" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.341933, 0, -0.00244725 )
+
+[node name="toiletpaper10" parent="toiletpaper2" index="4" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000945568, 0, 0.000184894 )
+
+[node name="toiletpaper5" parent="toiletpaper2" index="5" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0062573, 0, 0.115767 )
+
+[node name="toiletpaper6" parent="toiletpaper2" index="6" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34981, 0, 0.109626 )
+
+[node name="toiletpaper8" parent="toiletpaper2" index="7" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343649, 0, 0.224851 )
+
+[node name="toiletpaper9" parent="toiletpaper2" index="8" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00375462, 0, 0.231398 )
+
+[node name="toiletpaper7" parent="toiletpaper2" index="9" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34981, 0, 0.109626 )
+
+[node name="toiletpaper11" parent="toiletpaper2" index="10" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.331019, 0.111658, -0.0127751 )
+
+[node name="toiletpaper12" parent="toiletpaper2" index="11" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, 0.00916195, 0.111658, 0.0108057 )
+
+[node name="toiletpaper13" parent="toiletpaper2" index="12" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, 0.00924873, 0.111658, 0.126611 )
+
+[node name="toiletpaper14" parent="toiletpaper2" index="13" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.345769, 0.111658, 0.0986024 )
+
+[node name="toiletpaper15" parent="toiletpaper2" index="14" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.346699, 0.111658, 0.213989 )
+
+[node name="toiletpaper16" parent="toiletpaper2" index="15" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.00784945, 0.111658, 0.241409 )
+
+[node name="toiletpaper17" parent="toiletpaper2" index="16" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.345769, 0.111658, 0.0986024 )
+
+[node name="toiletpaper18" parent="toiletpaper2" index="17" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.342244, 0.220863, 0.0032841 )
+
+[node name="toiletpaper19" parent="toiletpaper2" index="18" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.00136256, 0.220863, -0.00559318 )
+
+[node name="toiletpaper20" parent="toiletpaper2" index="19" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00973678, 0.220863, 0.10968 )
+
+[node name="toiletpaper21" parent="toiletpaper2" index="20" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper22" parent="toiletpaper2" index="21" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.336289, 0.220863, 0.230512 )
+
+[node name="toiletpaper23" parent="toiletpaper2" index="22" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00363278, 0.220863, 0.225583 )
+
+[node name="toiletpaper24" parent="toiletpaper2" index="23" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper25" parent="toiletpaper2" index="24" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.342244, 0.220863, 0.0032841 )
+
+[node name="toiletpaper26" parent="toiletpaper2" index="25" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.00136256, 0.220863, -0.00559342 )
+
+[node name="toiletpaper27" parent="toiletpaper2" index="26" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00973678, 0.220863, 0.10968 )
+
+[node name="toiletpaper28" parent="toiletpaper2" index="27" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper29" parent="toiletpaper2" index="28" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.336289, 0.220863, 0.230512 )
+
+[node name="toiletpaper32" parent="toiletpaper2" index="29" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.336289, 0.220863, 0.230512 )
+
+[node name="toiletpaper30" parent="toiletpaper2" index="30" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00363255, 0.220863, 0.225583 )
+
+[node name="toiletpaper31" parent="toiletpaper2" index="31" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper33" parent="toiletpaper2" index="32" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.339751, 0.329708, -0.000570059 )
+
+[node name="toiletpaper34" parent="toiletpaper2" index="33" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, 0.00124335, 0.329708, -0.00184882 )
+
+[node name="toiletpaper35" parent="toiletpaper2" index="34" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, 0.00977111, 0.329708, 0.113643 )
+
+[node name="toiletpaper36" parent="toiletpaper2" index="35" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.346343, 0.329708, 0.111586 )
+
+[node name="toiletpaper37" parent="toiletpaper2" index="36" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.338861, 0.329708, 0.226733 )
+
+[node name="toiletpaper38" parent="toiletpaper2" index="37" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.338861, 0.329708, 0.226733 )
+
+[node name="toiletpaper39" parent="toiletpaper2" index="38" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, 0.0010848, 0.329708, 0.229381 )
+
+[node name="toiletpaper40" parent="toiletpaper2" index="39" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.346343, 0.329708, 0.111586 )
+
+[node name="toiletpaper41" parent="toiletpaper2" index="40" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.348508, 0.437934, 0.013906 )
+
+[node name="toiletpaper42" parent="toiletpaper2" index="41" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.00877023, 0.437934, -0.0153629 )
+
+[node name="toiletpaper43" parent="toiletpaper2" index="42" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, 0.00921082, 0.437934, 0.0990399 )
+
+[node name="toiletpaper44" parent="toiletpaper2" index="43" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.345871, 0.437934, 0.126225 )
+
+[node name="toiletpaper45" parent="toiletpaper2" index="44" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.328961, 0.437934, 0.240369 )
+
+[node name="toiletpaper46" parent="toiletpaper2" index="45" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.328961, 0.437934, 0.240369 )
+
+[node name="toiletpaper47" parent="toiletpaper2" index="46" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, 0.0100546, 0.437934, 0.2151 )
+
+[node name="toiletpaper48" parent="toiletpaper2" index="47" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.345871, 0.437934, 0.126225 )
+
+[node name="toiletpaper3" parent="." index="93" instance=ExtResource( 20 )]
+transform = Transform( 1.98959, 0, -0.203779, 0, 2, 0, 0.203779, 0, 1.98959, 0.0453387, -5.79433, 6.33334 )
+
+[node name="toiletpaper4" parent="toiletpaper3" index="3" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.341933, 0, -0.00244725 )
+
+[node name="toiletpaper10" parent="toiletpaper3" index="4" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000945568, 0, 0.000184894 )
+
+[node name="toiletpaper5" parent="toiletpaper3" index="5" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0062573, 0, 0.115767 )
+
+[node name="toiletpaper6" parent="toiletpaper3" index="6" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34981, 0, 0.109626 )
+
+[node name="toiletpaper8" parent="toiletpaper3" index="7" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343649, 0, 0.224851 )
+
+[node name="toiletpaper9" parent="toiletpaper3" index="8" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00375462, 0, 0.231398 )
+
+[node name="toiletpaper7" parent="toiletpaper3" index="9" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34981, 0, 0.109626 )
+
+[node name="toiletpaper11" parent="toiletpaper3" index="10" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.331019, 0.111658, -0.0127751 )
+
+[node name="toiletpaper12" parent="toiletpaper3" index="11" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, 0.00916195, 0.111658, 0.0108057 )
+
+[node name="toiletpaper13" parent="toiletpaper3" index="12" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, 0.00924873, 0.111658, 0.126611 )
+
+[node name="toiletpaper14" parent="toiletpaper3" index="13" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.345769, 0.111658, 0.0986024 )
+
+[node name="toiletpaper15" parent="toiletpaper3" index="14" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.346699, 0.111658, 0.213989 )
+
+[node name="toiletpaper16" parent="toiletpaper3" index="15" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.00784945, 0.111658, 0.241409 )
+
+[node name="toiletpaper17" parent="toiletpaper3" index="16" instance=ExtResource( 20 )]
+transform = Transform( 0.99811, 0, -0.0614492, 0, 1, 0, 0.0614492, 0, 0.99811, -0.345769, 0.111658, 0.0986024 )
+
+[node name="toiletpaper18" parent="toiletpaper3" index="17" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.342244, 0.220863, 0.0032841 )
+
+[node name="toiletpaper19" parent="toiletpaper3" index="18" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.00136256, 0.220863, -0.00559318 )
+
+[node name="toiletpaper20" parent="toiletpaper3" index="19" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00973678, 0.220863, 0.10968 )
+
+[node name="toiletpaper21" parent="toiletpaper3" index="20" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper22" parent="toiletpaper3" index="21" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.336289, 0.220863, 0.230512 )
+
+[node name="toiletpaper23" parent="toiletpaper3" index="22" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00363278, 0.220863, 0.225583 )
+
+[node name="toiletpaper24" parent="toiletpaper3" index="23" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper25" parent="toiletpaper3" index="24" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.342244, 0.220863, 0.0032841 )
+
+[node name="toiletpaper26" parent="toiletpaper3" index="25" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.00136256, 0.220863, -0.00559342 )
+
+[node name="toiletpaper27" parent="toiletpaper3" index="26" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00973678, 0.220863, 0.10968 )
+
+[node name="toiletpaper28" parent="toiletpaper3" index="27" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper29" parent="toiletpaper3" index="28" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.336289, 0.220863, 0.230512 )
+
+[node name="toiletpaper32" parent="toiletpaper3" index="29" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.336289, 0.220863, 0.230512 )
+
+[node name="toiletpaper30" parent="toiletpaper3" index="30" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, 0.00363255, 0.220863, 0.225583 )
+
+[node name="toiletpaper31" parent="toiletpaper3" index="31" instance=ExtResource( 20 )]
+transform = Transform( 0.99943, 0, 0.0337482, 0, 1, 0, -0.0337482, 0, 0.99943, -0.346335, 0.220863, 0.115559 )
+
+[node name="toiletpaper33" parent="toiletpaper3" index="32" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.339751, 0.329708, -0.000570059 )
+
+[node name="toiletpaper34" parent="toiletpaper3" index="33" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, 0.00124335, 0.329708, -0.00184882 )
+
+[node name="toiletpaper35" parent="toiletpaper3" index="34" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, 0.00977111, 0.329708, 0.113643 )
+
+[node name="toiletpaper36" parent="toiletpaper3" index="35" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.346343, 0.329708, 0.111586 )
+
+[node name="toiletpaper37" parent="toiletpaper3" index="36" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.338861, 0.329708, 0.226733 )
+
+[node name="toiletpaper38" parent="toiletpaper3" index="37" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.338861, 0.329708, 0.226733 )
+
+[node name="toiletpaper39" parent="toiletpaper3" index="38" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, 0.0010848, 0.329708, 0.229381 )
+
+[node name="toiletpaper40" parent="toiletpaper3" index="39" instance=ExtResource( 20 )]
+transform = Transform( 0.999934, 0, 0.0114666, 0, 1, 0, -0.0114666, 0, 0.999934, -0.346343, 0.329708, 0.111586 )
+
+[node name="toiletpaper41" parent="toiletpaper3" index="40" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.348508, 0.437934, 0.013906 )
+
+[node name="toiletpaper42" parent="toiletpaper3" index="41" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.00877023, 0.437934, -0.0153629 )
+
+[node name="toiletpaper43" parent="toiletpaper3" index="42" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, 0.00921082, 0.437934, 0.0990399 )
+
+[node name="toiletpaper44" parent="toiletpaper3" index="43" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.345871, 0.437934, 0.126225 )
+
+[node name="toiletpaper45" parent="toiletpaper3" index="44" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.328961, 0.437934, 0.240369 )
+
+[node name="toiletpaper46" parent="toiletpaper3" index="45" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.328961, 0.437934, 0.240369 )
+
+[node name="toiletpaper47" parent="toiletpaper3" index="46" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, 0.0100546, 0.437934, 0.2151 )
+
+[node name="toiletpaper48" parent="toiletpaper3" index="47" instance=ExtResource( 20 )]
+transform = Transform( 0.995618, 0, 0.0935175, 0, 1, 0, -0.0935175, 0, 0.995618, -0.345871, 0.437934, 0.126225 )
+
+[node name="TriggerA" parent="." index="94" instance=ExtResource( 15 )]
+transform = Transform( 1.157, 0, 0, 0, 0.269, 0, 0, 0, 1.456, -2.49094, -5.49906, 5.48523 )
+
+[node name="Flashlight" parent="." index="95" instance=ExtResource( 22 )]
+transform = Transform( -0.966685, 0, -0.255969, 0.0256317, 0.994974, -0.0968, 0.254682, -0.100136, -0.961826, -4.64705, 0.886609, 0.454715 )
+
+[node name="TriggerB" parent="." index="96" instance=ExtResource( 16 )]
+transform = Transform( 0.272, 0, 0, 0, 0.288, 0, 0, 0, 0.706, 2.50482, -2.43663, 6.49913 )
+
+[node name="toiletpaper4" parent="." index="97" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5609, -2.31542, 5.25914 )
+
+[node name="toiletpaper5" parent="." index="98" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.570433, -1.96079, 1.69997 )
+
+[node name="toiletpaper6" parent="." index="99" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48446, -2.26453, -1.35788 )
+
+[node name="toiletpaper7" parent="." index="100" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78385, 0.742584, -3.78276 )
+
+[node name="FollowPlayer" parent="." index="101" instance=ExtResource( 24 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -2.14812, 0, 11.0367 )
